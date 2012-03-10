@@ -12,93 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#
+# This file is the build configuration for a full Android
+# build for toro hardware. This cleanly combines a set of
+# device-specific aspects (drivers) with a device-agnostic
+# product configuration (apps). Except for a few implementation
+# details, it only fundamentally contains two inherit-product
+# lines, full and toro, hence its name.
+#
 
+#Camera
+PRODUCT_PACKAGES := \
+    Camera
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 # Languages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-# Propitary files
-$(call inherit-product, $(LOCAL_PATH)/proprietary/thinkpadtablet-vendor-blobs.mk)
-# Different Configfiles
-$(call inherit-product, $(LOCAL_PATH)/configfiles/thinkpadtablet-configs.mk)
-# Gapps
-$(call inherit-product, $(LOCAL_PATH)/gapps/gapps.mk)
+# Inherit from folio100 device
+$(call inherit-product, device/lenovo/thinkpadtablet/device.mk)
 
-#Included other Packages
-PRODUCT_PACKAGES := \
-    Camera \
-    su \
-    Superuser \
-    Trebuchet \
-    make_ext4fs \
-    librs_jni \
-
-#Live Wallpaper
-PRODUCT_PACKAGES := \
-    LiveWallpapers \
-    LiveWallpapersPicker \
-    MagicSmokeWallpapers \
-    VisualizationWallpapers
-
-# Publish that we support the live wallpaper feature.
-PRODUCT_COPY_FILES += \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
-
-#Packages for Audio
-PRODUCT_PACKAGES += \
-    libtinyalsa \
-    audio.primary.ventana \
-    tinyplay \
-    tinymix \
-    tinycap
-
-# Kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/lenovo/thinkpadtablet/zImage
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
-
-#For Chrome
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_ID=IML74K
-
-# Names
+# Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_thinkpadtablet
 PRODUCT_DEVICE := thinkpadtablet
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Full CM9 on ThinkPad Tablet
-
-#Configs for build.prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version = 131072 \
-    dalvik.vm.heapstartsize=5m \
-    dalvik.vm.heapgrowthlimit=48m \
-    dalvik.vm.heapsize=256m \
-    dalvik.vm.dexopt-flags=m=y \
-    wifi.interface=wlan0 \
-    ro.sf.lcd_density=150 
-
-# Device Overlays
-DEVICE_PACKAGE_OVERLAYS += device/lenovo/thinkpadtablet/overlay
-
-# This is a tablet
-PRODUCT_CHARACTERISTICS := tablet
-
-# Use HDPI artwork
-PRODUCT_LOCALES += hdpi
-
-# CM9 Green Fix
-COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DBOARD_USES_ALSA_AUDIO
-
-# Get files for bootimg
-PRODUCT_COPY_FILES += \
-    device/lenovo/thinkpadtablet/ramdisk/default.prop:root/default.prop \
-    device/lenovo/thinkpadtablet/ramdisk/init.ventana.rc:root/init.ventana.rc \
-    device/lenovo/thinkpadtablet/ramdisk/ueventd.ventana.rc:root/ueventd.ventana.rc \
-    device/lenovo/thinkpadtablet/ramdisk/init:root/init 
-
