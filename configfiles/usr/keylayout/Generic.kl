@@ -160,7 +160,7 @@ key 128   MEDIA_STOP
 # key 138 "KEY_HELP"
 key 139   MENU              WAKE_DROPPED
 # key 140 "KEY_CALC"
-# key 141 "KEY_SETUP"
+key 141 SETTINGS
 # key 142 "KEY_SLEEP"
 # key 143 "KEY_WAKEUP"
 # key 144 "KEY_FILE"
@@ -383,7 +383,8 @@ key 403   CHANNEL_DOWN
 # key 449 "KEY_DEL_EOS"
 # key 450 "KEY_INS_LINE"
 # key 451 "KEY_DEL_LINE"
-
+key 418    ZOOM_IN
+key 419    ZOOM_OUT
 
 key 464   FUNCTION
 key 465   ESCAPE            FUNCTION
@@ -406,7 +407,10 @@ key 481   E                 FUNCTION
 key 482   F                 FUNCTION
 key 483   S                 FUNCTION
 key 484   B                 FUNCTION
-
+key 523   POUND
+key 530   MUTE
+key 531   NOTIFICATION
+key 532   SYM
 
 # key 497 KEY_BRL_DOT1
 # key 498 KEY_BRL_DOT2
