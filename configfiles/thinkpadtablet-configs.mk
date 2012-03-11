@@ -73,7 +73,9 @@ PRODUCT_COPY_FILES += \
     device/lenovo/thinkpadtablet/configfiles/etc/firmware/nvmm_wavdec.axf:system/etc/firmware/nvmm_wavdec.axf \
     device/lenovo/thinkpadtablet/configfiles/etc/firmware/nvmm_wmadec.axf:system/etc/firmware/nvmm_wmadec.axf \
     device/lenovo/thinkpadtablet/configfiles/etc/firmware/nvmm_wmaprodec.axf:system/etc/firmware/nvmm_wmaprodec.axf \
-    device/lenovo/thinkpadtablet/configfiles/etc/firmware/nvrm_avp.bin:system/etc/firmware/nvrm_avp.bin 
+    device/lenovo/thinkpadtablet/configfiles/etc/firmware/nvrm_avp.bin:system/etc/firmware/nvrm_avp.bin \
+    device/lenovo/thinkpadtablet/configfiles/etc/permissions/android.hardware.touchscreen.pen.xml:system/etc/permissions/android.hardware.touchscreen.pen.xml \
+    device/lenovo/thinkpadtablet/configfiles/etc/gps/gpsconfig.xml:system/etc/gps/gpsconfig.xml
 
 # Place permission files
 PRODUCT_COPY_FILES += \
