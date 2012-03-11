@@ -108,7 +108,8 @@ PRODUCT_PACKAGES += \
     alsa_aplay \
     alsa_ctl \
     alsa_amixer \
-    Trebuchet
+    Trebuchet \
+    ToggleBar
 
 PRODUCT_CHARACTERISTICS := tablet
 
