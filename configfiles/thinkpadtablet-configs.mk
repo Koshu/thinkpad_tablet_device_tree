@@ -129,6 +129,7 @@ PRODUCT_COPY_FILES += \
     device/lenovo/thinkpadtablet/configfiles/usr/keychars/Czech.kcm:/system/usr/keychars/Czech.kcm \
     device/lenovo/thinkpadtablet/configfiles/usr/keychars/Spanish.kcm:/system/usr/keychars/Spanish.kcm \
     device/lenovo/thinkpadtablet/configfiles/usr/keychars/Danish.kcm:/system/usr/keychars/Danish.kcm \
+    device/lenovo/thinkpadtablet/configfiles/usr/keychars/Vendor_1241_Product_0003_Version_0110.kcm:/system/usr/keychars/Vendor_1241_Product_0003_Version_0110.kcm \
     device/lenovo/thinkpadtablet/configfiles/usr/idc/N-trig_Multi_Touch.idc:/system/usr/idc/N-trig_Multi_Touch.idc \
     device/lenovo/thinkpadtablet/configfiles/usr/idc/N-trig_Touch.idc:/system/usr/idc/N-trig_Touch.idc
 
